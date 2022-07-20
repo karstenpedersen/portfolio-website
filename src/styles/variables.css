@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default colors */
+    --color-primary: #3273db;
+    --color-secondary: #000000;
+
+    --color-light: #ffffff;
+    --color-dark: #020202;
+    --color-light-gray: #636363;
+
+    /* Heights */
+    --header-height: 75px;
+    --scroll-padding: var(--header-height);
+  }
+}

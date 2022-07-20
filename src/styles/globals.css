@@ -1,0 +1,10 @@
+@import url("variables.css");
+@import url("elements.css");
+/*@import url("utils.css");
+
+@import url("components.css");
+@import url("swiperjs.css");*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
