@@ -1,14 +1,27 @@
 import { Wrapper } from "components/common/layouts/Wrapper";
 import { Socials } from "components/common/Socials";
+import {
+  motion,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import useIsomorphicLayoutEffect from "hooks/use-isomorphic-layout-effect";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-dark py-10 text-light">
-      <Wrapper className="relative">
-        <div className="flex flex-col gap-6">
+    <footer id="contact" className="h-screen snap-start pb-10">
+      <Wrapper className="flex items-center overflow-hidden">
+        <motion.div className="flex min-h-max flex-col gap-6">
           <Link href="/">
-            <a className="text-5xl font-semibold uppercase">Karsten Pedersen</a>
+            <a className="2xl:9xl text-5xl font-semibold uppercase md:text-6xl lg:text-7xl xl:text-8xl">
+              Karsten
+              <br />
+              &gt; Pedersen
+            </a>
           </Link>
           <ul className="flex flex-col gap-2">
             <li>
@@ -29,21 +42,8 @@ export const Footer = () => {
           </ul>
 
           <Socials className="flex gap-4 text-2xl" />
-        </div>
+        </motion.div>
       </Wrapper>
     </footer>
   );
 };
-
-/*
-<div className="flex items-center gap-8">
-          <Logo />
-          <Socials className="flex gap-4 text-2xl" />
-        </div>
-        <hr />
-        <p>Copyright @ Karsten Pedersen</p>
-*/
-
-/*
-
-*/

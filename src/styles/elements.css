@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply scroll-pt-[var(--scroll-padding)] scroll-smooth;
+    @apply scroll-pt-[var(--scroll-padding)] scroll-smooth snap-y snap-proximity;
   }
 
   body {
@@ -18,17 +18,21 @@
     @apply font-paragraph leading-6;
   }
 
-  h4,
+  h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-paragraph text-primary;
+    @apply font-paragraph font-semibold uppercase;
   }
 
   h1 {
-    @apply text-4xl font-semibold uppercase;
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl;
   }
 
   mark {

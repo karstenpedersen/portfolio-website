@@ -10,7 +10,7 @@ export const Section = ({ id, className, children }: Props) => {
   return (
     <section
       id={id}
-      className={`min-h-screen py-[var(--header-height)] ${className}`}
+      className={`relative min-h-screen py-14 xl:py-8 ${className}`}
     >
       {children}
     </section>

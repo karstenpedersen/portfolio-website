@@ -8,7 +8,12 @@ import { Navigation } from "../Navigation";
 
 const motionVariants = {
   bgNone: { opacity: 0 },
-  bgDisplay: { opacity: 0.8 },
+  bgDisplay: { opacity: 0.85 },
+};
+
+const firefoxBgVariants = {
+  bgNone: { opacity: 0 },
+  bgDisplay: { opacity: 1 },
 };
 
 const variants = {
@@ -25,20 +30,23 @@ export const Header = () => {
     setMobile(!mobile);
   }
 
+  function handleBackground() {
+    setDisplayBackground(window.scrollY > 10 && window.innerWidth <= 1280);
+  }
+
   // Handle scroll padding
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--scroll-padding",
-      window.innerWidth > 1280 ? "0" : "var(--header-height)"
-    );
-
     const handleResize = () => {
       // Change --scroll-padding
       document.documentElement.style.setProperty(
         "--scroll-padding",
         window.innerWidth > 1280 ? "0" : "var(--header-height)"
       );
+
+      handleBackground();
     };
+
+    handleResize();
 
     // Add event listener to resize
     window.addEventListener("resize", handleResize);
@@ -51,26 +59,24 @@ export const Header = () => {
 
   // Handle header background
   useEffect(() => {
-    function handleScroll() {
-      setDisplayBackground(window.scrollY > 10 && window.innerWidth <= 1280);
-    }
+    window.addEventListener("scroll", handleBackground);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return function unMount() {
-      window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleBackground);
     };
-  });
+  }, []);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 h-[var(--header-height)] xl:mix-blend-difference`}
+        className={`fixed top-0 left-0 right-0 z-50 h-[var(--header-height)] backdrop-blur-lg backdrop-filter xl:h-0 xl:mix-blend-difference xl:filter-none xl:backdrop-blur-0`}
       >
+        <motion.span variants={firefoxBgVariants}
+          animate={displayBackground ? "bgDisplay" : "bgNone"} className="absolute -z-10 hidden h-full w-full bg-black firefox:block" />
         <motion.span
           variants={motionVariants}
           animate={displayBackground ? "bgDisplay" : "bgNone"}
-          className="absolute -z-10 h-full w-full bg-black"
+          className="absolute -z-10 h-full w-full bg-black firefox:hidden"
         />
 
         <Wrapper className="flex items-center justify-between 2xl:items-start">

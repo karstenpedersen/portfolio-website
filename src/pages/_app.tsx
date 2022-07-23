@@ -8,6 +8,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Header />
+      <div className="relative h-[1px] snap-start overflow-hidden bg-transparent text-dark">
+        LOL
+      </div>
       <Component {...pageProps} />
       <Footer />
     </ThemeProvider>

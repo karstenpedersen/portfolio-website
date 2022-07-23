@@ -1,7 +1,7 @@
 import { Wrapper } from "components/common/layouts/Wrapper";
 import { ImageBackground } from "components/ImageBackground";
 import { Section } from "components/Section/Section";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const variants = {
   rest: { x: 0, y: 0 },
@@ -9,17 +9,27 @@ const variants = {
 };
 
 export const HeroSection = () => {
+  const { scrollY } = useScroll();
+  const sectionY = useTransform(scrollY, [0, 2000], [0, -400]);
+
   return (
     <Section id="hero" className="!p-0">
       <ImageBackground
         image="/images/backgrounds/blackwater.gif"
-        className="bg-black bg-opacity-60 py-[var(--header-height)]"
+        className="bg-black bg-opacity-80 py-[var(--header-height)]"
       >
         <Wrapper className="mix-blend-difference">
-          <div className="flex w-full flex-col gap-2">
+          <motion.div
+            className="flex w-full flex-col gap-2"
+            style={{ y: sectionY }}
+          >
             <span className="font-semibold uppercase">
               <p className="text-3xl italic">Hi I&apos;m</p>
-              <h1 className="text-5xl sm:text-6xl">Karsten Pedersen</h1>
+              <h1 className="text-5xl sm:text-6xl">
+                Karsten
+                <br />
+                Pedersen
+              </h1>
             </span>
             <p className="lowercase text-light-gray">
               Designer & frontend developer
@@ -42,7 +52,7 @@ export const HeroSection = () => {
                 Get in contact
               </motion.div>
             </motion.a>
-          </div>
+          </motion.div>
 
           <motion.a
             href="#about"
@@ -62,13 +72,3 @@ export const HeroSection = () => {
     </Section>
   );
 };
-
-/*
-<Section id="hero" className="bg-dark">
-      <Wrapper>
-        
-
-        
-      </Wrapper>
-    </Section>
-*/
