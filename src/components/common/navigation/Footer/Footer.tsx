@@ -1,15 +1,8 @@
 import { Wrapper } from "components/common/layouts/Wrapper";
-import { Socials } from "components/common/Socials";
-import {
-  motion,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import useIsomorphicLayoutEffect from "hooks/use-isomorphic-layout-effect";
+import { IconLink } from "components/IconLink";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import * as FiIcons from "react-icons/fi";
 
 export const Footer = () => {
   return (
@@ -20,28 +13,36 @@ export const Footer = () => {
             <a className="2xl:9xl text-5xl font-semibold uppercase md:text-6xl lg:text-7xl xl:text-8xl">
               Karsten
               <br />
-              &gt; Pedersen
+              Pedersen
             </a>
           </Link>
-          <ul className="flex flex-col gap-2">
-            <li>
-              <a href="#" className="text-lg hover:ml-5 hover:text-light-gray">
-                contactkarsten@gmail.com
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-lg hover:ml-5 hover:text-light-gray">
-                contactkarsten@gmail.com
-              </a>
-            </li>
-            <li>
-              <a href="#" className="text-lg hover:ml-5 hover:text-light-gray">
-                contactkarsten@gmail.com
-              </a>
-            </li>
-          </ul>
 
-          <Socials className="flex gap-4 text-2xl" />
+          <div className="grid max-w-max gap-3 sm:grid-cols-2 sm:gap-y-4 sm:gap-x-6">
+            <IconLink
+              text="karstenpedersen"
+              href="https://github.com/karstenpedersen"
+              icon={<FiIcons.FiGithub className="text-xl" />}
+              className="text-lg"
+            />
+            <IconLink
+              text="@KarstenFinderup"
+              href="https://twitter.com/KarstenFinderup"
+              icon={<FiIcons.FiTwitter className="text-xl" />}
+              className="text-lg"
+            />
+            <IconLink
+              text="Karsten Pedersen"
+              href="https://www.linkedin.com/in/karsten-pedersen-864418246/"
+              icon={<FiIcons.FiLinkedin className="text-xl" />}
+              className="text-lg"
+            />
+            <IconLink
+              text="karstenfp.all@gmail.com"
+              href="mailto:karstenfp.all@gmail.com"
+              icon={<FiIcons.FiMail className="text-xl" />}
+              className="text-lg"
+            />
+          </div>
         </motion.div>
       </Wrapper>
     </footer>

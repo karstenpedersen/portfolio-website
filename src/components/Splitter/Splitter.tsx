@@ -8,7 +8,7 @@ interface Props {
 export const Splitter = ({ children, className }: Props) => {
   return (
     <div
-      className={`grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-20 ${className}`}
+      className={`grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-20 ${className}`}
     >
       {children}
     </div>

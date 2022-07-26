@@ -59,7 +59,7 @@ export const ProjectCard = ({
         </a>
       </Link>
       <div className="space-y-1">
-        <h3 className="normal-case">
+        <h3 className="text-lg normal-case">
           <Link href={href}>
             <a className="hover:underline">{title}</a>
           </Link>

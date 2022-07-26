@@ -1,3 +1,4 @@
+import { IconLink } from "components/IconLink";
 import * as FiIcons from "react-icons/fi";
 import { SocialLink } from "../SocialLink";
 
@@ -8,8 +9,18 @@ interface Props {
 export const Socials = ({ className }: Props) => {
   return (
     <ul className={className}>
-      <SocialLink icon={<FiIcons.FiGithub />} path="" />
-      <SocialLink icon={<FiIcons.FiLinkedin />} path="" />
+      <IconLink
+        href="https://github.com/karstenpedersen"
+        icon={<FiIcons.FiGithub />}
+      />
+      <IconLink
+        href="https://www.linkedin.com/in/karsten-pedersen-864418246/"
+        icon={<FiIcons.FiLinkedin />}
+      />
+      <IconLink
+        href="mailto:karstenfp.all@gmail.com"
+        icon={<FiIcons.FiMail />}
+      />
     </ul>
   );
 };
