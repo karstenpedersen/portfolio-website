@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
-
-import { AboutSection } from "components/sections/AboutSection";
-import { HeroSection } from "components/sections/HeroSection";
-import { WorkSection } from "components/sections/WorkSection";
+import { AboutSection } from "sections/AboutSection";
+import { HeroSection } from "sections/HeroSection";
+import { WorkSection } from "sections/WorkSection";
 
 const Home: NextPage = () => {
   return (

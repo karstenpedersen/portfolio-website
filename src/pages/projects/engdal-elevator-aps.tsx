@@ -1,16 +1,16 @@
+import { Section } from "components/sections/Section";
+import { StickySection } from "components/sections/StickySection";
+import { Splitter } from "components/utilities/Splitter";
+import { Wrapper } from "components/utilities/Wrapper";
 import type { NextPage } from "next";
-
-import { Section } from "components/Section";
-import { Splitter } from "components/Splitter";
 import Image from "next/image";
-import { Wrapper } from "components/common/layouts/Wrapper";
 
 const Project: NextPage = () => {
   return (
     <main className="relative">
       <Section id="title" className="!min-h-[0]">
         <Wrapper>
-          <Splitter className="!gap-4">
+          <Splitter>
             <h1>Engdal Elevator ApS</h1>
             <div>
               <p>Website, Branding</p>
@@ -23,52 +23,54 @@ const Project: NextPage = () => {
           </Splitter>
         </Wrapper>
       </Section>
-      <Section id="showcase">
-        <Wrapper>
-          <Splitter>
-            <div className="h-full">
-              <h1 className="sticky top-8">Showcase</h1>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
-              <div className="relative min-h-[300px] w-full">
-                <Image
-                  src="/images/backgrounds/blackwater.gif"
-                  alt="image"
-                  layout="fill"
-                />
-              </div>
-              <div className="relative min-h-[300px] w-full">
-                <Image
-                  src="/images/backgrounds/blackwater.gif"
-                  alt="image"
-                  layout="fill"
-                />
-              </div>
-              <div className="relative min-h-[300px] w-full">
-                <Image
-                  src="/images/backgrounds/blackwater.gif"
-                  alt="image"
-                  layout="fill"
-                />
-              </div>
-              <div className="relative min-h-[300px] w-full">
-                <Image
-                  src="/images/backgrounds/blackwater.gif"
-                  alt="image"
-                  layout="fill"
-                />
-              </div>
-            </div>
-          </Splitter>
-        </Wrapper>
-      </Section>
-      <Section id="showcase" className="bg-blue-500">
-        <Wrapper>
-          <Splitter>
-            <h1>Test</h1>
-          </Splitter>
-        </Wrapper>
-      </Section>
+      <StickySection
+        id="showcase"
+        title="Showcase"
+        className="grid gap-8 md:grid-cols-2 lg:grid-cols-1"
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+          molestiae, reprehenderit quia sequi asperiores magni dolores possimus,
+          placeat minus sapiente architecto esse dolore nemo libero provident
+          delectus, dicta unde laudantium vel quod deserunt cupiditate quisquam.
+          Officiis sequi quisquam iusto expedita quibusdam, ratione repudiandae,
+          quod ea eum tenetur cum laborum est dolores dolorum! Fugiat soluta
+          nemo iure perspiciatis, cumque consectetur est molestias reiciendis
+          quo doloribus, inventore consequatur possimus. Dolore asperiores
+          incidunt aliquam cumque iste laboriosam tenetur perferendis
+          temporibus, odio neque deserunt. Eveniet, tempora! Soluta delectus
+          harum sequi, esse dolore quidem deserunt iste cumque eius
+          reprehenderit quos omnis voluptatibus doloribus atque velit?
+        </p>
+        <div className="relative min-h-[300px] w-full">
+          <Image
+            src="/images/backgrounds/blackwater.gif"
+            alt="image"
+            layout="fill"
+          />
+        </div>
+        <div className="relative min-h-[300px] w-full">
+          <Image
+            src="/images/backgrounds/blackwater.gif"
+            alt="image"
+            layout="fill"
+          />
+        </div>
+        <div className="relative min-h-[300px] w-full">
+          <Image
+            src="/images/backgrounds/blackwater.gif"
+            alt="image"
+            layout="fill"
+          />
+        </div>
+        <div className="relative min-h-[300px] w-full">
+          <Image
+            src="/images/backgrounds/blackwater.gif"
+            alt="image"
+            layout="fill"
+          />
+        </div>
+      </StickySection>
     </main>
   );
 };
